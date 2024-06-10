@@ -995,7 +995,7 @@ class MentionsInput extends React.Component {
     })
   }
 
-  addMention = (
+  async addMention = (
     { id, display },
     { childIndex, querySequenceStart, querySequenceEnd, plainTextValue }
   ) => {
@@ -1023,7 +1023,7 @@ class MentionsInput extends React.Component {
     // Refocus input and set caret position to end of mention
     this.inputElement.focus()
 
-    let displayValue = displayTransform(id, display)
+    let displayValue = await displayTransform(id, display)
     if (appendSpaceOnAdd) {
       displayValue += ' '
     }
